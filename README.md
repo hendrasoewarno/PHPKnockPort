@@ -1,9 +1,14 @@
 # PHPPortKnocking
 Dalam rangka keamanan, sering kali kita perlu menutup beberapa port yang dapat membawa resiko kepada penyerangan, tetapi pada sisi lain kita juga membutuhkan layanan tersebut untuk melakukan kegiatan remote maintenance. Untuk membalance kedua trade-off tersebut dibutuhkan suatu fitur knock port.
-### Membuat htaccess
+### Membuat folder pintu
+```
+mkdir /var/www/pintu
+```
+### Membuat passwd.txt
 ```
 htpasswd -c /etc/apache2/passwd.txt guest
-mkdir /var/www/pintu
+```
+### Membuat .htaccess
 sudo pico /var/www/pintu/.htaccess
   AuthType Basic
   AuthName "Authentication Required"
@@ -40,7 +45,7 @@ function get_client_ip() {
 
 function allow($ipAddress, $portNumber) {
 $f = fopen("/usr/bin/allow.sh", "a");
-fwrite($f, "/sbin/iptables -A INPUT -p tcp -s $ipAddress --dport $portNumber -j$
+fwrite($f, "/sbin/iptables -I INPUT -p tcp -s $ipAddress --dport $portNumber -j$
 fclose($f);
 }
 ?>
@@ -89,6 +94,7 @@ chown www-data /usr/bin/allow.sh
 ### Membuat crontab untuk mengaktifkan runallow.sh per-5 menit
 ```
 crontab -e
-# m h  dom mon dow   command
 */5 * * * * /usr/bin/runallow.sh
 ```
+# Menguji port knocking
+Buat dengan browser http://localhost/pintu/nomor22.php, yang jika dijalankan akan memperbolehkan koneksi ke Port 22 5 menit kemudian
