@@ -9,6 +9,7 @@ mkdir /var/www/pintu
 htpasswd -c /etc/apache2/passwd.txt guest
 ```
 ### Membuat .htaccess
+```
 sudo pico /var/www/pintu/.htaccess
   AuthType Basic
   AuthName "Authentication Required"
@@ -97,4 +98,4 @@ crontab -e
 */5 * * * * /usr/bin/runallow.sh
 ```
 # Menguji port knocking
-Buat dengan browser http://localhost/pintu/nomor22.php, yang jika dijalankan akan memperbolehkan koneksi ke Port 22 5 menit kemudian
+Buat dengan browser http://localhost/pintu/nomor22.php, yang jika login berhasil, maka akan memperbolehkan koneksi ke Port 22 setelah 5 menit kedepan.
