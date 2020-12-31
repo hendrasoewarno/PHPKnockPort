@@ -98,4 +98,4 @@ crontab -e
 */5 * * * * /usr/bin/runallow.sh
 ```
 # Menguji port knocking
-Buat dengan browser http://localhost/pintu/nomor22.php, yang jika login berhasil, maka akan memperbolehkan koneksi ke Port 22 setelah 5 menit kedepan.
+Buat dengan browser https://localhost/pintu/nomor22.php, yang jika login berhasil, maka akan memperbolehkan koneksi ke Port 22 setelah 5 menit kedepan. Senantiasa disarankan untuk menggunakan https.
