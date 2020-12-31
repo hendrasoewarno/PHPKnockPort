@@ -1,5 +1,5 @@
 # PHPPortKnocking
-Dalam rangka keamanan, sering kali kita perlu menutup beberapa port yang dapat membawa resiko kepada penyerangan, tetapi pada sisi lain kita juga membutuhkan layanan tersebut untuk melakukan kegiatan remote maintenance. Untuk membalance kedua trade-off tersebut dibutuhkan suatu fitur knock port.
+Dalam rangka keamanan, sering kali kita perlu menutup beberapa port yang dapat membawa resiko kepada penyerangan, tetapi pada sisi lain kita juga membutuhkan layanan tersebut untuk melakukan kegiatan remote maintenance. Untuk membalance kedua trade-off tersebut dibutuhkan suatu fitur port knocking yang akan membuka port untuk ipaddress yang melakukan knocking dan berhasil memberikan password dengan benar.
 ### Membuat folder pintu
 ```
 mkdir /var/www/pintu
